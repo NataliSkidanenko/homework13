@@ -1,0 +1,28 @@
+//Variables
+$size: 10px;
+$radius:3px;
+
+$size-font: 16px;
+$color-light: #FFFFFF;
+$color-primary: #274D87;
+$color-secondary: #E1F5FE;
+$color-middle: #245E87;
+$color-mega-dark: #212124;
+$color-dark: #393A42;
+
+@mixin flex($direction, $justify, $align) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+    flex-wrap: wrap;
+}
+
+@mixin boxShadow {
+    box-shadow: 1px 5px 8px rgba($color-mega-dark, .5);
+}
+
+@mixin heading {
+    font-size: 2rem;
+    text-align: center;
+}

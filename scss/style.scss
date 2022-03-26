@@ -1,0 +1,612 @@
+@import 'tools';
+@import 'reset';
+
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+h1 {
+    font-size: 3.35rem;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+h4,
+h5,
+h6 {
+    font-size: 1.2rem;
+}
+
+.container {
+    width: 1280px;
+    margin: 0 auto;
+    padding: 0 3%;
+}
+
+.selection {
+    font-weight: bold;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.header {
+    padding: $size*2;
+    background-color: rgba($color-mega-dark, .9);
+    
+    .container {
+        @include flex(row, space-between, center);
+    }
+
+    .logo {
+        width: 55%;
+
+        &__img {
+            width: 100%;
+        }
+    }
+
+    .nav {
+
+        &__toggle {
+            display: none;
+        }
+        
+        &__btn {
+            display: none;
+        }
+
+        &__box {
+            @include flex(row, space-between, center);
+            flex-wrap: nowrap;
+        }
+
+        &__item {
+            margin-right: $size*3;
+        }
+
+        &__link {
+            color: $color-light;
+            white-space: nowrap;
+
+            &:hover {
+                opacity: 0.6;
+            }
+        }
+    }
+
+}
+
+.hero {
+
+    &.bg1 {
+        background: url(../img/ship-main2.jpg) center center no-repeat;
+        background-size: cover;
+    }
+    
+    &.bg2 {
+        background: url(../img/ship-main1.jpg) center center no-repeat;
+        background-size: cover;
+    }
+    
+    &.bg3 {
+        background: url(../img/ship-main3.jpg) center center no-repeat;
+        background-size: cover;
+    }
+
+    &__content {
+        background-color: rgba($color-primary, .6);
+        padding: 10% 0;
+    }
+
+    &__heading {
+        margin-left: 2%;
+        font-style: italic;
+        color: $color-middle;
+        text-transform: uppercase;
+        text-shadow: 3px 1px 0 #EFAF32;
+    }
+
+    &__subheading {
+        margin-top: $size*1.5;
+        padding: 1.8% 2%;
+        color: $color-mega-dark;
+        background-color: rgba($color-secondary, .8);
+        border-radius: $radius;
+        @include boxShadow();
+    }
+}
+
+.about {
+    padding-bottom: $size*1.5;
+    background: $color-secondary url(../img/cartoon-ship-vector-clipart.png) center 14% no-repeat;
+    background-size: 150%;
+
+    .container {
+        padding: 0 6%;
+    }  
+
+    .tab {
+        font-size: 0;
+
+        input[type="radio"] {
+            display: none;
+        }
+
+        &>div {
+            display: none;
+        }
+
+        &__item {
+            display: inline-block;
+            padding: $size $size*3;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            background-color: #DDEEF5;
+            border-radius: $size*6 $size*6 0 0;
+            cursor: pointer;
+        }
+
+        input[type="radio"]:checked+label {
+            background-color: rgba($color-primary, .6);
+            color: $color-light;
+        }
+
+        #tab-first:checked~#tab-content-first,
+        #tab-second:checked~#tab-content-second, 
+        #tab-third:checked~#tab-content-third, 
+        #tab-fourth:checked~#tab-content-fourth {
+            display: block;
+        }
+    }
+
+    &__block {
+        font-size: 1rem;
+        border-top: 6px solid rgba($color-primary, .6);
+    }  
+
+    &__heading {
+        @include heading();
+        width: 96%;
+        margin: $size*1.5 auto;
+        border-bottom: 2px solid $color-primary;
+    }
+
+    &__text {
+        &--bg {
+            padding: 1.5%;
+            background-color: rgba($color-primary, .2);
+            border-radius: $radius;
+            @include boxShadow();
+        }
+    }
+
+    &__icon {
+        margin-top: -5px;
+    }
+
+    .services-list {
+        margin-top: $size*3;
+
+        &__item {
+            margin-top: $size*2;
+        }
+        &__icon {
+            margin-top: -9px;
+        }
+    }
+}
+
+.services {
+    padding: $size*3 0 $size*2 0;
+    color: $color-light;
+    background-color: $color-primary;
+
+    &__heading, &__subheading {
+        text-align: center;
+    }
+
+    .gallery {
+        @include flex(row, space-between, center);
+        margin-top: $size*3;
+
+        &__link {
+            display: block;
+            width: 27%;
+            margin-top: $size*3;
+            transition: all .4s;
+
+            &:hover {
+                transform: scale(1.1);
+            }
+        }
+
+        &__img {
+            object-fit: cover;
+            width: 100%;
+        }
+    }
+   
+    .btn-group {
+        width: 60%;
+        margin: $size*6 auto 0 auto;
+        text-align: center;
+        @include boxShadow();
+
+        &__item {
+            display: block;
+            padding: $size*2;
+            color: $color-light;
+            background-color: $color-middle;
+            box-shadow: -1px 0px 3px rgba($color-mega-dark, .5);
+            transition: all 0.4s;
+
+            &:hover {
+                transform: scale(1.05);
+                opacity: .7;
+            }
+        }
+    }
+}
+
+.info {
+    padding-top: $size*2;
+    background-color: $color-secondary;
+
+    .article {
+        @include flex(row, space-between, flex-start);
+
+        &__heading {
+            @include heading();
+            width: 100%;
+
+            &--margin {
+                margin-top: $size*4.5;
+            }
+        }
+        
+        &__block {
+            width: 48.5%;
+            margin-top: $size*2;
+
+            &--special {
+                margin-top: $size*9;
+            }
+        }
+
+        &__img {
+            width: 100%;
+
+            &--special {
+                width: 45%;
+                opacity: .3;
+            }
+        }
+
+        &__text {
+            margin-bottom: $size*2;
+            text-indent: $size*3;
+        }
+
+        &__item {
+            @include flex(row, flex-start, flex-end);
+            margin-top: $size*1.5;
+            flex-wrap: nowrap;
+
+            &::before {
+                content: '';
+                display: block;
+                width: 24px;
+                height: 24px;
+                margin-right: $size;
+                background: url(../img/sailboat.png) center center no-repeat;
+                background-size: cover;
+            }
+        }
+
+        .cite {
+            padding: $size $size*0.75;
+            border-left: 10px solid rgba($color-dark, .2);
+            
+            &__img {
+                margin-top: -15px;
+            }
+        }
+    }
+}
+
+.footer {
+    padding: $size*6 0 $size*3 0;
+    color: $color-light;
+    background-color: $color-mega-dark;
+    
+    a {
+        color: $color-light;
+    }
+
+    .container {
+        padding: 0 5%;
+        @include flex(row, flex-start, flex-start);
+    }
+
+    &__block {
+        width:70/2 *1%;
+
+        &--mini {
+            width: 30%;
+           text-align: center;
+        }
+    }
+
+    &__text {
+        margin-bottom: $size*3;
+        line-height: 1.5rem;
+
+        &--special {
+            padding-top: $size*3;
+            border-top: 1px solid $color-light;
+        }
+    }
+
+    .contacts {
+        &__item {
+            margin-top: $size*0.75;
+        }
+
+        &__img {
+            margin-right: $size;
+        }
+    }
+
+    &__panel {
+        width: 100%;
+        margin-top: $size*1.5;
+        padding-top: $size;
+        text-align: center;
+        border-top: 1px solid $color-light;
+    }
+}
+
+@media screen and (max-width: 1280px) {
+    .container {
+        width: 90%;
+        padding: 0 3%;
+    }
+
+    .header {
+        &__block {
+            width: 50%;
+        }
+    }
+}
+
+@media screen and (max-width: 1024px) {
+
+    .header {
+        
+        .container {
+            position: relative;
+        }
+
+        &__block {
+            width: auto;
+        }
+
+        .nav {
+            position: absolute;
+            width: 32px;
+            height: 100%;
+            top: 0;
+            right: 4%;
+            z-index: 4;
+
+            &__btn {
+                display: flex;
+                align-items: center;
+                position: absolute;
+                top: 50%;
+                right: 0;
+                width: 100%;
+                height: 100%;
+                transform: translate(0, -50%);
+                cursor: pointer;
+                z-index: 1;
+                
+                & > span,
+                & > span::before,
+                & > span::after {
+                    display: block;
+                    position: absolute;
+                    width: 100%;
+                    height: 3px;
+                    background-color: $color-light;
+                    border-radius: 8px;
+                    transition-duration: .25s;
+                }
+
+                & > span::before {
+                        content: '';
+                        top: -8px;
+                }
+            
+                & > span::after {
+                        content: '';
+                        top: 8px;
+                }
+            }
+            
+            &__toggle {
+                &:checked ~ .nav__btn > span {
+                    transform: rotate(45deg);
+                }
+                &:checked ~ .nav__btn > span::before {
+                    top: 0;
+                    transform: rotate(0);
+                }
+        
+                &:checked ~ .nav__btn > span::after {
+                    top: 0;
+                    transform: rotate(90deg);
+                }
+                
+                &:checked ~ .nav__box {
+                    visibility: visible;
+                    left: 0%;
+                }
+            }
+
+            &__box {
+                display: block;
+                position: fixed;
+                visibility: hidden;
+                top: 0;
+                left: -100%;
+                width: 60%;
+                height: 100%;
+                margin: 0;
+                padding-top: 5%;
+                background-color: darken($color-primary, 5%);
+                transition-duration: .25s;
+            } 
+
+            &__item {
+                padding: 5%;
+            }
+
+            &__link {
+                font-size: 1.5rem;
+            }
+        }
+    }
+
+    .footer {
+        &__block {
+            width:80/2 *1%;
+    
+            &--mini {
+                width: 20%;
+               text-align: center;
+            }
+        }
+    }
+
+}
+
+@media screen and (max-width: 960px) {
+    .container {
+        width: 95%;
+        padding: 0 2%;
+    }
+
+    .footer {
+        .container {
+            flex-direction: column;
+        }
+
+        &__block {
+            width: 100%;
+            text-align: left;
+        }
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .about {
+        .container {
+            padding: 0 2%;
+        }
+    }
+
+    .services {
+
+        .gallery {
+            &__link {
+                width: 48%;
+            }
+        }
+
+        .btn-group {
+            width: 80%;
+        }
+    }
+
+    .info {
+        .article {
+            flex-direction: column;
+
+            &__block {
+                width: 100%;
+
+                &--special {
+                    text-align: center;
+                }
+            }
+        }
+
+    }
+}
+
+@media screen and (max-width: 480px) {
+
+    .header {
+        .nav {
+            &__box {
+                width: 80%;
+            }
+        }
+    }
+
+    .hero {
+        &__content {
+            text-align: center;
+        }
+
+        &__heading {
+            font-size: 2.5rem;
+        }
+    }
+}
+
+
+@media screen and (max-width: 375px) {
+
+    .header {
+        .logo {
+            width: 75%;
+        }
+    }
+
+    .hero {
+        &__content {
+            padding: 50% 0;
+        }
+    }
+    .services {
+
+        .btn-group {
+            width: 90%;
+        }
+    }
+
+    .about {
+        .tab {
+            &__item {
+                padding: 10px 15px;
+            }
+        }
+    }
+
+    .footer {
+
+        &__block {
+            text-align: center;
+        }
+    }
+}
